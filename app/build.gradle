@@ -30,6 +30,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        viewBinding = true
+        /*Enables view binding, replaced findViewById() as well as using kotlin-android-extension to access resources*/
+    }
 }
 
 dependencies {
