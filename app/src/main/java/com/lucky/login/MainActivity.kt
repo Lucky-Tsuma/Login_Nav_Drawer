@@ -1,5 +1,7 @@
 package com.lucky.login
 
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
@@ -39,12 +41,18 @@ class MainActivity : AppCompatActivity() {
             }
 
             val email = binding.inputEmail.editText?.text.toString().trim()
-            val password = binding.inputPassword.editText?.text.toString().trim()
+            val sh = getSharedPreferences("sharedPref", MODE_PRIVATE)
+            val editor: SharedPreferences.Editor = sh.edit()
+            editor.putString("email", email)
+
             Toast.makeText(
                 applicationContext,
-                "Email: $email\nPassword: $password",
+                "You have been logged in!",
                 Toast.LENGTH_SHORT
             ).show()
+
+            val intentHomepage = Intent(applicationContext, Homepage::class.java)
+            startActivity(intentHomepage)
         }
     }
 
