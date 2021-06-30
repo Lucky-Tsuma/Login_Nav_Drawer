@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity() {
             val sh = getSharedPreferences("sharedPref", MODE_PRIVATE)
             val editor: SharedPreferences.Editor = sh.edit()
             editor.putString("email", email)
+            editor.apply()
 
             Toast.makeText(
                 applicationContext,
